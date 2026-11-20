@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AlertaBairro: alertas de enchente por SMS e web, pensados para quem mora em áreas de risco.">
+  <title>AlertaBairro · Início</title>
+  <meta name="theme-color" content="#06223a">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="index.html">
+        <img src="img/logo.svg" alt="Logotipo do AlertaBairro" width="36" height="36">
+        <span>AlertaBairro</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav class="menu" id="menu-principal" aria-label="Principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+      <div class="acessibilidade" role="group" aria-label="Opções de acessibilidade">
+        <button type="button" id="fonte-menos" aria-label="Diminuir o tamanho da letra">A−</button>
+        <button type="button" id="fonte-mais" aria-label="Aumentar o tamanho da letra">A+</button>
+        <button type="button" id="alto-contraste" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="container hero-grade">
+        <div>
+          <span class="selo-secao">CitizenTech · Clima e emergências</span>
+          <h1 id="titulo-hero">Avisar a tempo salva vidas na enchente.</h1>
+          <p class="lead">O AlertaBairro transforma a previsão de chuva em um aviso simples, por bairro, que chega por SMS ou pela web — mesmo para quem tem pouca internet.</p>
+          <div class="botoes">
+            <a class="btn" href="solucao.html">Testar a simulação</a>
+            <a class="btn btn-sec" href="impacto.html">Ver o impacto</a>
+          </div>
+        </div>
+        <img class="ilustracao" src="img/hero.svg" alt="Ilustração de um bairro com chuva forte e rio cheio. Ao lado, um celular exibe um alerta vermelho com a indicação de ponto de apoio." width="600" height="440">
+      </div>
+    </section>
+
+    <section class="secao secao-alt" aria-labelledby="titulo-cidadao">
+      <div class="container">
+        <span class="selo-secao">Quem é o cidadão</span>
+        <h2 id="titulo-cidadao">Dona Marlene, 58 anos, mora na baixada.</h2>
+        <p class="lead">Persona ilustrativa. Ela vive perto de um córrego que transborda a cada chuva forte, usa um celular simples com pouco pacote de dados e cuida de um neto pequeno. Quando a água sobe, ela descobre tarde demais.</p>
+        <div class="grade">
+          <article class="cartao">
+            <h3>Quem sofre</h3>
+            <p>Famílias de bairros de baixada e encosta, idosos, crianças e pessoas com mobilidade reduzida.</p>
+          </article>
+          <article class="cartao">
+            <h3>O que falta</h3>
+            <p>Um aviso claro, no tempo certo, dizendo o que fazer e para onde ir — sem depender de internet boa.</p>
+          </article>
+          <article class="cartao">
+            <h3>O que ela quer</h3>
+            <p>Sair de casa com segurança, levar os documentos e saber qual é o ponto de apoio mais próximo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-problema">
+      <div class="container">
+        <span class="selo-secao">O problema</span>
+        <h2 id="titulo-problema">Milhões de pessoas vivem em áreas de risco.</h2>
+        <div class="destaque-dado">
+          <p class="numero-grande">8.270.127</p>
+          <div class="texto">
+            <p>pessoas viviam em áreas de risco de enchentes e deslizamentos em 872 municípios brasileiros monitorados, em 2010. Cerca de 17,8% delas eram crianças e idosos.</p>
+            <p class="fonte">Fonte: IBGE e Cemaden, <a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/21565-em-2010-brasil-tinha-8-3-milhoes-de-pessoas-morando-em-areas-com-risco-de-desastres-naturais.html" target="_blank" rel="noopener noreferrer">População em áreas de risco no Brasil (2018, dados do Censo 2010)</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-alt" aria-labelledby="titulo-proposta">
+      <div class="container">
+        <span class="selo-secao">A proposta</span>
+        <h2 id="titulo-proposta">Um alerta por bairro, em linguagem simples.</h2>
+        <p class="lead">O sistema cruza a chuva prevista com as características de cada bairro e avisa os moradores com instruções práticas.</p>
+        <div class="grade">
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">1</span>
+            <h3>Calcula o risco</h3>
+            <p>Chuva prevista, proximidade de rio, altitude e vulnerabilidade social viram um índice de 0 a 100.</p>
+          </article>
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">2</span>
+            <h3>Avisa quem precisa</h3>
+            <p>A mensagem sai por SMS ou pela web, com nível de alerta, o que fazer e o ponto de apoio.</p>
+          </article>
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">3</span>
+            <h3>Funciona sem internet</h3>
+            <p>O SMS chega mesmo sem pacote de dados, e a página tem alto contraste e letra ajustável.</p>
+          </article>
+        </div>
+        <p><a class="btn" href="solucao.html">Experimentar agora</a></p>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-ods">
+      <div class="container">
+        <span class="selo-secao">Agenda 2030 da ONU</span>
+        <h2 id="titulo-ods">ODS conectados ao projeto</h2>
+        <div class="grade">
+          <article class="cartao">
+            <span class="ods-selo">ODS 11</span>
+            <h3>Cidades e comunidades sustentáveis</h3>
+            <p>Reduz perdas humanas e materiais em desastres e protege quem vive em áreas vulneráveis.</p>
+          </article>
+          <article class="cartao">
+            <span class="ods-selo">ODS 13</span>
+            <h3>Ação contra a mudança global do clima</h3>
+            <p>Ajuda comunidades a se adaptarem a chuvas extremas, cada vez mais frequentes.</p>
+          </article>
+          <article class="cartao">
+            <span class="ods-selo">ODS 3</span>
+            <h3>Saúde e bem-estar</h3>
+            <p>Evita mortes e ferimentos e reduz doenças ligadas a enchentes, como a leptospirose.</p>
+          </article>
+          <article class="cartao">
+            <span class="ods-selo">ODS 10</span>
+            <h3>Redução das desigualdades</h3>
+            <p>Prioriza bairros com maior vulnerabilidade e pessoas com mobilidade reduzida.</p>
+          </article>
+          <article class="cartao">
+            <span class="ods-selo">ODS 9</span>
+            <h3>Indústria, inovação e infraestrutura</h3>
+            <p>Usa dados e comunicação simples para criar infraestrutura de alerta acessível.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-grade">
+      <div>
+        <p><strong>AlertaBairro</strong> · CitizenTech · FIAP Global Solution 2026/2</p>
+        <p>Protótipo acadêmico. Os dados dos bairros na simulação são fictícios.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

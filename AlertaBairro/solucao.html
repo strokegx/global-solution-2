@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simule a chuva e veja o risco de cada bairro. Cadastre-se para receber alertas.">
+  <title>AlertaBairro · Solução</title>
+  <meta name="theme-color" content="#06223a">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="index.html">
+        <img src="img/logo.svg" alt="Logotipo do AlertaBairro" width="36" height="36">
+        <span>AlertaBairro</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav class="menu" id="menu-principal" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html" aria-current="page">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+      <div class="acessibilidade" role="group" aria-label="Opções de acessibilidade">
+        <button type="button" id="fonte-menos" aria-label="Diminuir o tamanho da letra">A−</button>
+        <button type="button" id="fonte-mais" aria-label="Aumentar o tamanho da letra">A+</button>
+        <button type="button" id="alto-contraste" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="secao" aria-labelledby="titulo-como">
+      <div class="container">
+        <span class="selo-secao">Como funciona</span>
+        <h1 id="titulo-como">A solução, passo a passo</h1>
+        <p class="lead">Do dado de chuva ao aviso no celular do morador, em quatro passos.</p>
+        <div class="grade grade-4">
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">1</span>
+            <h3>Entrada de dados</h3>
+            <p>Previsão de chuva em 24h (mm) e nível do rio. No protótipo, o usuário informa os valores.</p>
+          </article>
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">2</span>
+            <h3>Cálculo do risco</h3>
+            <p>Cada bairro recebe um índice de 0 a 100 conforme vulnerabilidade, altitude e proximidade de rio.</p>
+          </article>
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">3</span>
+            <h3>Classificação</h3>
+            <p>O índice vira um nível: Baixo, Atenção, Alto ou Crítico, com cor e texto (nunca só cor).</p>
+          </article>
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">4</span>
+            <h3>Aviso e orientação</h3>
+            <p>O morador recebe a mensagem com o que fazer e o ponto de apoio mais próximo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-alt" id="simulacao" aria-labelledby="titulo-simulacao">
+      <div class="container">
+        <span class="selo-secao">Simulação interativa</span>
+        <h2 id="titulo-simulacao">Teste o alerta de enchente</h2>
+        <p class="lead">Mova o controle de chuva e veja como o risco muda em cada bairro. Depois clique em "Ver orientações" para ler a mensagem que o morador receberia.</p>
+        <p class="aviso"><strong>Dados fictícios:</strong> os 12 bairros desta simulação foram inventados para demonstrar a ideia. O cálculo é didático e não substitui os alertas oficiais da Defesa Civil.</p>
+
+        <form id="form-simulacao" class="painel-controle" aria-label="Controles da simulação">
+          <div class="campo">
+            <label for="chuva">Chuva prevista em 24h</label>
+            <input type="range" id="chuva" name="chuva" min="0" max="200" step="5" value="60">
+            <span class="saida-valor"><output id="chuva-valor" for="chuva">60 mm</output></span>
+          </div>
+
+          <div class="campo">
+            <label for="sel-bairro">Bairro</label>
+            <select id="sel-bairro" name="bairro">
+              <option value="todos">Todos os bairros</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="filtro-nivel">Mostrar nível</label>
+            <select id="filtro-nivel" name="nivel">
+              <option value="todos">Todos os níveis</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="ordem">Ordenar por</label>
+            <select id="ordem" name="ordem">
+              <option value="risco">Maior risco primeiro</option>
+              <option value="nome">Nome (A a Z)</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <div class="opcao">
+              <input type="checkbox" id="rio-alto" name="rio-alto">
+              <label for="rio-alto">O rio já está acima do normal</label>
+            </div>
+          </div>
+
+          <div class="botoes">
+            <button type="submit" class="btn">Simular alerta</button>
+            <button type="button" class="btn btn-sec" id="btn-limpar">Limpar</button>
+          </div>
+        </form>
+
+        <p class="resumo" id="resumo" role="status" aria-live="polite">Carregando simulação...</p>
+
+        <div class="lista-bairros" id="lista-bairros" aria-label="Resultado por bairro"></div>
+
+        <div class="painel-bairro" id="painel-bairro" tabindex="-1" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="cadastro" aria-labelledby="titulo-cadastro">
+      <div class="container">
+        <span class="selo-secao">Participe</span>
+        <h2 id="titulo-cadastro">Receba os alertas do seu bairro</h2>
+        <p class="lead">Todos os campos com * são obrigatórios. Você escolhe se quer receber por SMS, WhatsApp ou ligação de voz.</p>
+
+        <form id="form-cadastro" class="formulario" novalidate aria-label="Cadastro para receber alertas">
+          <div class="campo">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" aria-describedby="erro-nome">
+            <p class="erro" id="erro-nome"></p>
+          </div>
+
+          <div class="campo">
+            <label for="telefone">Telefone com DDD *</label>
+            <input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" aria-describedby="ajuda-telefone erro-telefone">
+            <p class="ajuda" id="ajuda-telefone">Exemplo: (11) 91234-5678</p>
+            <p class="erro" id="erro-telefone"></p>
+          </div>
+
+          <div class="campo">
+            <label for="cad-bairro">Bairro onde você mora *</label>
+            <select id="cad-bairro" name="bairro" aria-describedby="erro-bairro">
+              <option value="">Escolha um bairro</option>
+            </select>
+            <p class="erro" id="erro-bairro"></p>
+          </div>
+
+          <fieldset class="campo" aria-describedby="erro-canal">
+            <legend class="rotulo">Como prefere receber o alerta? *</legend>
+            <div class="opcao">
+              <input type="radio" id="canal-sms" name="canal" value="SMS">
+              <label for="canal-sms">SMS (funciona sem internet)</label>
+            </div>
+            <div class="opcao">
+              <input type="radio" id="canal-whats" name="canal" value="WhatsApp">
+              <label for="canal-whats">WhatsApp</label>
+            </div>
+            <div class="opcao">
+              <input type="radio" id="canal-voz" name="canal" value="ligação de voz">
+              <label for="canal-voz">Ligação de voz</label>
+            </div>
+            <p class="erro" id="erro-canal"></p>
+          </fieldset>
+
+          <div class="campo">
+            <div class="opcao">
+              <input type="checkbox" id="ajuda-mobilidade" name="ajuda-mobilidade">
+              <label for="ajuda-mobilidade">Moro com alguém com mobilidade reduzida e posso precisar de ajuda para sair</label>
+            </div>
+          </div>
+
+          <div class="campo">
+            <div class="opcao">
+              <input type="checkbox" id="aceite" name="aceite" aria-describedby="erro-aceite">
+              <label for="aceite">Aceito que meu telefone seja usado somente para enviar alertas *</label>
+            </div>
+            <p class="erro" id="erro-aceite"></p>
+          </div>
+
+          <button type="submit" class="btn">Quero receber alertas</button>
+          <p class="mensagem-form" id="msg-form" role="status" aria-live="polite" tabindex="-1"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="secao secao-alt" aria-labelledby="titulo-tec">
+      <div class="container">
+        <span class="selo-secao">Tecnologias</span>
+        <h2 id="titulo-tec">O que está por trás do protótipo</h2>
+        <div class="grade">
+          <article class="cartao">
+            <h3>No protótipo</h3>
+            <p>HTML5 semântico, CSS3 com Flexbox, Grid e media queries, e JavaScript puro (arrays de objetos, DOM, eventos e validação de formulário).</p>
+          </article>
+          <article class="cartao">
+            <h3>Na versão completa</h3>
+            <p>Dados de chuva do Cemaden, sensores de nível de rio de baixo custo e envio de SMS por operadoras parceiras.</p>
+          </article>
+          <article class="cartao">
+            <h3>Quem participa</h3>
+            <p>Defesa Civil, prefeitura, Cemaden, associações de moradores, escolas e unidades de saúde como pontos de apoio.</p>
+          </article>
+        </div>
+        <p><a class="btn" href="impacto.html">Ver o impacto</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-grade">
+      <div>
+        <p><strong>AlertaBairro</strong> · CitizenTech · FIAP Global Solution 2026/2</p>
+        <p>Protótipo acadêmico. Os dados dos bairros na simulação são fictícios.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/simulacao.js"></script>
+  <script src="js/formulario.js"></script>
+</body>
+</html>

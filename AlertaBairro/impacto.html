@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Impacto estimado do AlertaBairro, como será medido e como pode crescer.">
+  <title>AlertaBairro · Impacto</title>
+  <meta name="theme-color" content="#06223a">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container topo-interno">
+      <a class="marca" href="index.html">
+        <img src="img/logo.svg" alt="Logotipo do AlertaBairro" width="36" height="36">
+        <span>AlertaBairro</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav class="menu" id="menu-principal" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html" aria-current="page">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+      <div class="acessibilidade" role="group" aria-label="Opções de acessibilidade">
+        <button type="button" id="fonte-menos" aria-label="Diminuir o tamanho da letra">A−</button>
+        <button type="button" id="fonte-mais" aria-label="Aumentar o tamanho da letra">A+</button>
+        <button type="button" id="alto-contraste" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="secao" aria-labelledby="titulo-impacto">
+      <div class="container">
+        <span class="selo-secao">Impacto</span>
+        <h1 id="titulo-impacto">Quem ganha com o AlertaBairro</h1>
+        <p class="lead">Números calculados em tempo real a partir dos 12 bairros fictícios da simulação.</p>
+
+        <div class="metricas" aria-label="Números da área de teste">
+          <div class="metrica"><span class="valor" id="m-bairros">0</span><span class="rotulo">bairros cobertos</span></div>
+          <div class="metrica"><span class="valor" id="m-moradores">0</span><span class="rotulo">moradores avisados</span></div>
+          <div class="metrica"><span class="valor" id="m-vulneraveis">0</span><span class="rotulo">moradores em bairros de alta vulnerabilidade</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-alt" id="cenarios" aria-labelledby="titulo-cenarios">
+      <div class="container">
+        <h2 id="titulo-cenarios">Escolha um cenário de chuva</h2>
+        <div class="seletor-cenario" role="group" aria-label="Cenários de chuva">
+          <button type="button" data-chuva="40" data-nome="Chuva moderada" aria-pressed="false">Moderada · 40 mm</button>
+          <button type="button" data-chuva="100" data-nome="Chuva forte" aria-pressed="false">Forte · 100 mm</button>
+          <button type="button" data-chuva="160" data-nome="Chuva extrema" aria-pressed="false">Extrema · 160 mm</button>
+        </div>
+        <p id="texto-cenario" role="status" aria-live="polite"></p>
+        <ul id="lista-niveis" class="lista-niveis"></ul>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-medir">
+      <div class="container">
+        <span class="selo-secao">Como medir</span>
+        <h2 id="titulo-medir">Indicadores de sucesso</h2>
+        <div class="tabela-rolagem">
+          <table>
+            <caption>Indicadores, forma de medir e meta no primeiro ano</caption>
+            <thead>
+              <tr>
+                <th scope="col">Indicador</th>
+                <th scope="col">Como medir</th>
+                <th scope="col">Meta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tempo entre o alerta e a chuva forte</td>
+                <td>Horário do SMS comparado ao registro do Cemaden</td>
+                <td>Pelo menos 2 horas de antecedência</td>
+              </tr>
+              <tr>
+                <td>Moradores cadastrados</td>
+                <td>Total de cadastros por bairro</td>
+                <td>60% das famílias das áreas de risco</td>
+              </tr>
+              <tr>
+                <td>Pessoas que chegaram ao ponto de apoio</td>
+                <td>Lista de presença dos pontos de apoio</td>
+                <td>Aumento a cada evento de chuva</td>
+              </tr>
+              <tr>
+                <td>Satisfação e clareza da mensagem</td>
+                <td>Pesquisa rápida por SMS após cada alerta</td>
+                <td>Nota média acima de 4 em 5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-alt" aria-labelledby="titulo-ampliar">
+      <div class="container">
+        <span class="selo-secao">Como ampliar</span>
+        <h2 id="titulo-ampliar">Do bairro para a cidade</h2>
+        <div class="grade">
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">1</span>
+            <h3>Piloto</h3>
+            <p>Começar em 2 ou 3 bairros com a Defesa Civil local e líderes comunitários.</p>
+          </article>
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">2</span>
+            <h3>Cidade inteira</h3>
+            <p>Integrar com a prefeitura, escolas e unidades de saúde como pontos de apoio.</p>
+          </article>
+          <article class="cartao">
+            <span class="numero-passo" aria-hidden="true">3</span>
+            <h3>Outros riscos</h3>
+            <p>Estender o mesmo modelo para deslizamentos e ondas de calor, e para outras cidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-ecossistema">
+      <div class="container">
+        <span class="selo-secao">Ecossistema</span>
+        <h2 id="titulo-ecossistema">Quem participa</h2>
+        <ul>
+          <li><strong>Moradores e associações de bairro:</strong> cadastram-se, ajudam vizinhos e indicam pontos de apoio.</li>
+          <li><strong>Defesa Civil e prefeitura:</strong> validam os alertas e coordenam a resposta.</li>
+          <li><strong>Cemaden:</strong> fornece os dados de monitoramento de chuva e risco.</li>
+          <li><strong>Operadoras de telefonia:</strong> garantem o envio de SMS em larga escala.</li>
+          <li><strong>Escolas, igrejas e unidades de saúde:</strong> funcionam como pontos de apoio.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="secao secao-alt" aria-labelledby="titulo-ods-impacto">
+      <div class="container">
+        <span class="selo-secao">Agenda 2030 da ONU</span>
+        <h2 id="titulo-ods-impacto">Contribuição para os ODS</h2>
+        <div class="tabela-rolagem">
+          <table>
+            <caption>ODS ligados ao projeto e meta relacionada</caption>
+            <thead>
+              <tr>
+                <th scope="col">ODS</th>
+                <th scope="col">Como o AlertaBairro contribui</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">11 · Cidades e comunidades sustentáveis</th><td>Reduz o número de pessoas afetadas por desastres e protege áreas vulneráveis.</td></tr>
+              <tr><th scope="row">13 · Ação contra a mudança global do clima</th><td>Fortalece a capacidade de adaptação a eventos climáticos extremos.</td></tr>
+              <tr><th scope="row">3 · Saúde e bem-estar</th><td>Evita mortes, ferimentos e doenças associadas a enchentes.</td></tr>
+              <tr><th scope="row">10 · Redução das desigualdades</th><td>Prioriza quem tem menos recursos e menos acesso à informação.</td></tr>
+              <tr><th scope="row">9 · Indústria, inovação e infraestrutura</th><td>Cria uma infraestrutura de alerta de baixo custo, baseada em dados.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a class="btn" href="solucao.html">Voltar à simulação</a> <a class="btn btn-sec" href="equipe.html">Conhecer a equipe</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-grade">
+      <div>
+        <p><strong>AlertaBairro</strong> · CitizenTech · FIAP Global Solution 2026/2</p>
+        <p>Protótipo acadêmico. Os dados dos bairros na simulação são fictícios.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/impacto.js"></script>
+</body>
+</html>
